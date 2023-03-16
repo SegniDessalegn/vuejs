@@ -26,12 +26,16 @@
   <body>
     <h1>Hello, Vue 3</h1>
     <div id="app">
-      <div v-if="showbooks">
-        <p v-for="book in books">{{ book.title }} - {{ book.author }}</p>
-      </div>
+      <a v-bind:href="url">Google</a>
+      <ul v-if="showbooks">
+        <li v-for="book in books">
+          <img :src="book.url" alt="book.title">
+          {{ book.title }} - {{ book.author }}
+        </li>
+      </ul>
       <div @click="toggleShowBooks">
-        <span v-if="showbooks">Hide Books</span>
-        <span v-else>Show Books</span>
+        <button v-if="showbooks">Hide Books</button>
+        <button v-else>Show Books</button>
       </div>
       <div v-show="showbooks">showing books</div>
       <br />
