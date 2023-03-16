@@ -6,6 +6,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <title>VUE</title>
+    <style>
+      .box{
+        width: 100px;
+        padding: 50px;
+        text-align: center;
+        background-color: rgb(214, 211, 211);
+        display: inline-block;
+        border-style: solid;
+        border-color: black;
+        border-width: 1px;
+        margin: 10px;
+      }
+      .box:hover{
+        background-color: rgb(173, 173, 173);
+      }
+    </style>
   </head>
   <body>
     <h1>Hello, Vue 3</h1>
@@ -21,6 +37,11 @@
         <span v-else>Show Books</span>
       </div>
       <div v-show = "showbooks">showing books</div>
+      <br>
+      <div class = "box" @mouseover = "handleEvent($event, 5)"> mouse enter </div>
+      <div class = "box" @mouseleave = "handleEvent"> mouse leave </div>
+      <div class = "box" @dblclick = "handleEvent"> double click </div>
+      <div class = "box" @mousemove = "handleMousemove"> {{x}}, {{y}}</div>
     </div>
     <script src="app.js"></script>
   </body>
