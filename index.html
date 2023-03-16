@@ -21,6 +21,23 @@
       .box:hover {
         background-color: rgb(173, 173, 173);
       }
+      .fav{
+        background-color: rgb(221, 222, 253);
+      }
+      li{
+        font-size:larger;
+        margin: 10px;
+        padding: 10px;
+        border-radius: 10px;
+        background-color: aliceblue;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+      }
+      img{
+        margin: 10px;
+        border-radius: 10px;
+      }
     </style>
   </head>
   <body>
@@ -28,9 +45,10 @@
     <div id="app">
       <a v-bind:href="url">Google</a>
       <ul v-if="showbooks">
-        <li v-for="book in books">
+        <li v-for="book in books" :class = "{fav : book.isFav}">
           <img :src="book.url" alt="book.title">
           {{ book.title }} - {{ book.author }}
+          <button @click = "book.isFav = !book.isFav">Fav</button>
         </li>
       </ul>
       <div @click="toggleShowBooks">

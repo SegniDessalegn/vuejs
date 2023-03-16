@@ -6,9 +6,9 @@ const app = Vue.createApp({
             x: 0,
             y: 0,
             books : [
-                {title:"name of the wind", author:"patrick rothfuss", url: "assets/1.jpg"},
-                {title:"the way of kings", author:"brandon sanderson", url: "assets/2.jpg"},
-                {title:"the final empire", author:"brandon sanderson", url: "assets/3.jpg"},
+                {title:"name of the wind", author:"patrick rothfuss", url: "assets/1.jpg", isFav : true},
+                {title:"the way of kings", author:"brandon sanderson", url: "assets/2.jpg", isFav : true},
+                {title:"the final empire", author:"brandon sanderson", url: "assets/3.jpg", isFav : true},
             ]
         };
     },
@@ -23,7 +23,7 @@ const app = Vue.createApp({
         handleMousemove(e){
             this.x = e.offsetX
             this.y = e.offsetY
-        }
+        },
     }
 })
 
