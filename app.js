@@ -1,19 +1,18 @@
 const app = Vue.createApp({
     data() {
         return {
-            title: "the final empire",
-            author: "ME",
-            age: 45,
             showbooks: true,
             x: 0,
             y: 0,
+            books : [
+                {title:"name of the wind", author:"patrick rothfuss"},
+                {title:"the way of kings", author:"brandon sanderson"},
+                {title:"the final empire", author:"brandon sanderson"},
+            ]
         };
     },
 
     methods: {
-        changeTitle(title){
-            this.title = title
-        },
         toggleShowBooks(){
             this.showbooks = !this.showbooks
         },

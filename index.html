@@ -7,7 +7,7 @@
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <title>VUE</title>
     <style>
-      .box{
+      .box {
         width: 100px;
         padding: 50px;
         text-align: center;
@@ -18,7 +18,7 @@
         border-width: 1px;
         margin: 10px;
       }
-      .box:hover{
+      .box:hover {
         background-color: rgb(173, 173, 173);
       }
     </style>
@@ -27,21 +27,18 @@
     <h1>Hello, Vue 3</h1>
     <div id="app">
       <div v-if="showbooks">
-        <p>{{title}} - {{author}} - {{age}}</p>
+        <p v-for="book in books">{{ book.title }} - {{ book.author }}</p>
       </div>
-      <button v-on:click="age++">Increase age</button>
-      <button v-on:click="age--">Increase age</button>
-      <div @click="changeTitle('The new title')">change the title</div>
-      <div @click = "toggleShowBooks">
+      <div @click="toggleShowBooks">
         <span v-if="showbooks">Hide Books</span>
         <span v-else>Show Books</span>
       </div>
-      <div v-show = "showbooks">showing books</div>
-      <br>
-      <div class = "box" @mouseover = "handleEvent($event, 5)"> mouse enter </div>
-      <div class = "box" @mouseleave = "handleEvent"> mouse leave </div>
-      <div class = "box" @dblclick = "handleEvent"> double click </div>
-      <div class = "box" @mousemove = "handleMousemove"> {{x}}, {{y}}</div>
+      <div v-show="showbooks">showing books</div>
+      <br />
+      <div class="box" @mouseover="handleEvent($event, 5)">mouse enter</div>
+      <div class="box" @mouseleave="handleEvent">mouse leave</div>
+      <div class="box" @dblclick="handleEvent">double click</div>
+      <div class="box" @mousemove="handleMousemove">{{ x }}, {{ y }}</div>
     </div>
     <script src="app.js"></script>
   </body>
