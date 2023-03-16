@@ -9,7 +9,7 @@
     <style>
       .box {
         width: 100px;
-        padding: 50px;
+        padding: 25px;
         text-align: center;
         background-color: rgb(214, 211, 211);
         display: inline-block;
@@ -21,22 +21,26 @@
       .box:hover {
         background-color: rgb(173, 173, 173);
       }
-      .fav{
+      .fav {
         background-color: rgb(221, 222, 253);
       }
-      li{
-        font-size:larger;
+      li {
+        font-size: larger;
         margin: 10px;
-        padding: 10px;
+        padding: 0px 50px 0px 50px;
         border-radius: 10px;
         background-color: aliceblue;
         display: flex;
-        justify-content: space-around;
+        justify-content: space-between;
         align-items: center;
       }
-      img{
+      img {
+        height: 75px;
         margin: 10px;
         border-radius: 10px;
+      }
+      .Favorites {
+        display: inline-flex;
       }
     </style>
   </head>
@@ -44,18 +48,25 @@
     <h1>Hello, Vue 3</h1>
     <div id="app">
       <a v-bind:href="url">Google</a>
-      <ul v-if="showbooks">
-        <li v-for="book in books" :class = "{fav : book.isFav}">
-          <img :src="book.url" alt="book.title">
-          {{ book.title }} - {{ book.author }}
-          <button @click = "book.isFav = !book.isFav">Fav</button>
+      <ul v-if="showplaces">
+        <div v-if="filteredplaces.length > 0">Favorites</div>
+        <div v-else>No favorites</div>
+        <li v-for="place in filteredplaces" class="Favorites">
+          {{ place.name }}
         </li>
       </ul>
-      <div @click="toggleShowBooks">
-        <button v-if="showbooks">Hide Books</button>
-        <button v-else>Show Books</button>
+      <ul v-if="showplaces">
+        <li v-for="place in places" :class="{fav : place.isFav}">
+          <img :src="place.url" alt="place.name" />
+          {{ place.name }}
+          <button @click="place.isFav = !place.isFav">Fav</button>
+        </li>
+      </ul>
+      <div @click="toggleShowplaces">
+        <button v-if="showplaces">Hide places</button>
+        <button v-else>Show places</button>
       </div>
-      <div v-show="showbooks">showing books</div>
+      <div v-show="showplaces">showing places</div>
       <br />
       <div class="box" @mouseover="handleEvent($event, 5)">mouse enter</div>
       <div class="box" @mouseleave="handleEvent">mouse leave</div>
