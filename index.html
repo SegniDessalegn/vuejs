@@ -1,20 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <title>VUE</title>
-</head>
-<body>
+  </head>
+  <body>
     <h1>Hello, Vue 3</h1>
-    <div id = "app">
+    <div id="app">
+      <div v-if="showbooks">
         <p>{{title}} - {{author}} - {{age}}</p>
-        <button v-on:click = "age++"> Increase age</button>
-        <button v-on:click = "age--"> Increase age</button>
-        <div @click = "changeTitle('The new title')">change the title</div>
+      </div>
+      <button v-on:click="age++">Increase age</button>
+      <button v-on:click="age--">Increase age</button>
+      <div @click="changeTitle('The new title')">change the title</div>
+      <div @click = "toggleShowBooks">
+        <span v-if="showbooks">Hide Books</span>
+        <span v-else>Show Books</span>
+      </div>
+      <div v-show = "showbooks">showing books</div>
     </div>
-    <script src = "app.js"></script>
-    </body>
-    </html>
+    <script src="app.js"></script>
+  </body>
+</html>
