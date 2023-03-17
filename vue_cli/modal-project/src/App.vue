@@ -1,8 +1,28 @@
 <template>
   <div>{{ title }}</div>
-  <div v-if = "showModal">
-  <Modal :header = "header" :text = "text" theme = "sale" @close = "toggleModal"/></div>
-  <button @click.alt = "toggleModal" > Show Modal</button>
+  <div v-if="showModal">
+    <Modal theme="" @close="toggleModal">
+      <template v-slot:links>
+        <a href="#">sign up now</a>
+        <a href="#">more info</a>
+      </template>
+      <h1>Signup for the great giveaway</h1>
+      <p>Grap your gift</p>
+    </Modal>
+  </div>
+
+  <div v-if="showModalTwo">
+    <Modal theme="sale" @close="toggleModalTwo">
+      <template v-slot:links>
+        <a href="#">sign up now</a>
+        <a href="#">more info</a>
+      </template>
+      <h1>Another modal</h1>
+      <p>Grap your other gift too</p>
+    </Modal>
+  </div>
+  <button @click="toggleModal"> Show Modal</button>
+  <button @click="toggleModalTwo"> Show Another Modal</button>
 </template>
 
 <script>
@@ -14,19 +34,21 @@ export default {
   data() {
     return {
       title: "Welcome",
-      header: "Signup for the great giveaway",
-      text: "Grap your gift",
-      showModal: false
+      showModal: false,
+      showModalTwo: false,
     }
   },
   methods: {
-    handleClick(){
+    handleClick() {
       console.log(this.$refs.name)
       this.$refs.name.classList.add("active")
       this.$refs.name.focus()
     },
-    toggleModal(){
+    toggleModal() {
       this.showModal = !this.showModal
+    },
+    toggleModalTwo() {
+      this.showModalTwo = !this.showModalTwo
     }
   }
 }
@@ -40,5 +62,19 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+h1 {
+  border-bottom: 1px solid #ddd;
+  display: inline-block;
+  padding-bottom: 10px;
+}
+button {
+  background: #bbb;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  margin: 10px;
+  font-size: 16px;
+  color: #333;
 }
 </style>
