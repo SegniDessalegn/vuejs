@@ -1,6 +1,8 @@
 <template>
   <div>{{ title }}</div>
-  <Modal />
+  <div v-if = "showModal">
+  <Modal :header = "header" :text = "text" theme = "sale"/></div>
+  <button @click = "handleModal" > Show Modal</button>
 </template>
 
 <script>
@@ -11,7 +13,10 @@ export default {
   components: { Modal },
   data() {
     return {
-      title: "this the title now"
+      title: "this is the title now",
+      header: "Signup for the great giveaway",
+      text: "grap your gift",
+      showModal: false
     }
   },
   methods: {
@@ -19,6 +24,9 @@ export default {
       console.log(this.$refs.name)
       this.$refs.name.classList.add("active")
       this.$refs.name.focus()
+    },
+    handleModal(){
+      this.showModal = !this.showModal
     }
   }
 }
