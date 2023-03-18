@@ -30,6 +30,7 @@ export default {
   }
   .backdrop {
     top: 0;
+    left: 0;
     position: fixed;
     background: rgba(0,0,0,0.5);
     width: 100%;
@@ -51,7 +52,7 @@ export default {
   .modal .actions a {
     color: #333;
     padding: 8px;
-    border: 1px solid #eee;
+    border: 1px solid black;
     border-radius: 4px;
     text-decoration: none;
     margin: 10px;
@@ -68,6 +69,7 @@ export default {
     color: white;
   }
   .modal.sale .actions a {
+    border: 1px solid white;
     color: white;
   }
 </style>
